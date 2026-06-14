@@ -1,0 +1,78 @@
+{
+  "logreg|significant": {
+    "C": 10.833638781816703,
+    "class_weight": null
+  },
+  "rf|significant": {
+    "n_estimators": 200,
+    "max_depth": 3,
+    "min_samples_leaf": 6,
+    "max_features": "log2",
+    "class_weight": "balanced"
+  },
+  "lgbm|significant": {
+    "n_estimators": 500,
+    "num_leaves": 43,
+    "learning_rate": 0.13499341361874423,
+    "min_child_samples": 38,
+    "reg_lambda": 0.05570645112667189,
+    "subsample": 0.9648225250212964,
+    "colsample_bytree": 0.6127969083397969,
+    "class_weight": null
+  },
+  "catboost|significant": {
+    "iterations": 500,
+    "depth": 4,
+    "learning_rate": 0.012929152036251024,
+    "l2_leaf_reg": 8.953324312826679,
+    "auto_class_weights": null
+  },
+  "xgb|significant": {
+    "n_estimators": 200,
+    "max_depth": 4,
+    "learning_rate": 0.018666766307672132,
+    "subsample": 0.8121858940320781,
+    "colsample_bytree": 0.936369680294416,
+    "reg_lambda": 1.3826254109962826,
+    "min_child_weight": 9,
+    "scale_pos_weight": 1.3529910223648847
+  },
+  "logreg|no_collinear": {
+    "C": 0.061937179416835984,
+    "class_weight": null
+  },
+  "rf|no_collinear": {
+    "n_estimators": 300,
+    "max_depth": 8,
+    "min_samples_leaf": 1,
+    "max_features": "log2",
+    "class_weight": "balanced"
+  },
+  "lgbm|no_collinear": {
+    "n_estimators": 500,
+    "num_leaves": 74,
+    "learning_rate": 0.25936963695891874,
+    "min_child_samples": 5,
+    "reg_lambda": 0.07045663353061798,
+    "subsample": 0.9585589341760112,
+    "colsample_bytree": 0.6789987770157738,
+    "class_weight": "balanced"
+  },
+  "catboost|no_collinear": {
+    "iterations": 200,
+    "depth": 7,
+    "learning_rate": 0.020954187098758573,
+    "l2_leaf_reg": 3.295513622925066,
+    "auto_class_weights": null
+  },
+  "xgb|no_collinear": {
+    "n_estimators": 200,
+    "max_depth": 2,
+    "learning_rate": 0.010756869609194693,
+    "subsample": 0.9577017769448984,
+    "colsample_bytree": 0.8726882817362617,
+    "reg_lambda": 0.029599289464804973,
+    "min_child_weight": 4,
+    "scale_pos_weight": 1.2456379466333523
+  }
+}
