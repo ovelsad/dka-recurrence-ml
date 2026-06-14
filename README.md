@@ -194,3 +194,10 @@ python -m streamlit run service/app.py
 ## Лицензия и цитирование
 
 Лицензия и форма цитирования будут добавлены вместе с публикацией препринта.
+
+---
+
+## Author
+
+**Oleg Sadykhov** — M.Sc. student, Faculty of AI Technologies (AI in Industry track), ITMO University, Saint Petersburg, Russia
+[ovelsad23@gmail.com](mailto:ovelsad23@gmail.com) · [github.com/ovelsad](https://github.com/ovelsad)
