@@ -170,7 +170,7 @@ python -m streamlit run service/app.py
 
 Демонстрация работы (данные пациента на записи обезличены):
 
-<video src="https://github.com/Lempopone/dka-relapse-prediction/raw/main/docs/streamlit_demo.webm" controls width="100%"></video>
+<video src="https://github.com/ovelsad/dka-relapse-ml-prediction/raw/master/docs/streamlit_demo.webm" controls width="100%"></video>
 
 Если видео не воспроизводится в твоем браузере, оно доступно файлом:
 [docs/streamlit_demo.webm](docs/streamlit_demo.webm).
