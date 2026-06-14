@@ -61,7 +61,6 @@ catboost_info/
 .DS_Store
 Thumbs.db
 
-
 # Персональные академические артефакты (презентация, PDF)
 docs/*.pptx
 docs/*.pdf
