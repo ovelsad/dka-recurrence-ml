@@ -1,0 +1,73 @@
+# Данные пациентов не коммитим (приватность медицинских данных).
+data/raw/
+data/interim/
+data/processed/
+*.xlsx
+*.xls
+*.csv
+*.parquet
+
+# Диагностические отчеты с данными пациентов (ИБ, даты рождения, значения).
+# Для статьи делаем отдельные обезличенные таблицы.
+reports/data_dictionary.md
+reports/eda_overview.md
+reports/dup_check.md
+reports/flags_for_doctors.md
+reports/new_flags.md
+reports/clean_verify.md
+reports/eda_columns.md
+reports/col_decisions.md
+reports/transformations.md
+reports/bootstrap_ci.md
+reports/dimreduce.md
+reports/missingness.md
+reports/imputation.md
+reports/manual_imputation.md
+reports/test_eval_*.md
+reports/threshold_*.md
+reports/shap_*.md
+
+# Все текстовые отчеты и графики производны от данных пациентов и
+# пересоздаются кодом, поэтому в репозиторий их не кладем.
+reports/*.md
+reports/figures/
+# Таблицы результатов тоже не публикуем, кроме подобранных гиперпараметров
+# (не персональные данные): они нужны для воспроизводимости без повторного
+# долгого подбора. Сам каталог reports/ не игнорируем, иначе исключение ниже
+# не сработает.
+reports/tables/*
+!reports/tables/tuning_optuna_params.json
+
+# Старый разведочный ноутбук, не входит в итоговый пайплайн (00-15)
+notebooks/NIR_ovelsad.ipynb
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Окружение и секреты
+.env
+
+# Артефакты обучения
+*.joblib
+*.pkl
+mlruns/
+catboost_info/
+
+# Системное
+.DS_Store
+Thumbs.db
+
+# Локальные служебные настройки и заметки разработки, не для публикации
+.claude/
+CLAUDE.md
+
+# Персональные академические артефакты (презентация, PDF)
+docs/*.pptx
+docs/*.pdf
+# Запись демо целиком, кроме обезличенного ролика для README
+docs/*.webm
+!docs/streamlit_demo.webm
