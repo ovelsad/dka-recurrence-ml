@@ -1,6 +1,5 @@
 # Воспроизведение окружения проекта.
-# Создаем чистый conda env с Python и ставим все пакеты через pip из
-# requirements.txt. Так избегаем рассинхрона conda-сборок (matplotlib, BLAS).
+# Создаем conda env с Python и ставим пакеты через pip из requirements.txt.
 #
 #   conda env create -f environment.yml
 #   conda activate dka

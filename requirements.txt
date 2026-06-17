@@ -1,18 +1,10 @@
-# Точные версии пакетов проекта по рецидивам ДКА.
-# Источник истины для окружения. Ставим через pip внутри conda env "dka"
-# (Python 3.11.15). Все из pip намеренно: conda-сборка matplotlib 3.10.9 падала
-# при сохранении графиков, а смешение conda-numpy с pip-пакетами роняло BLAS в
-# scipy. Держим numpy, scipy, matplotlib из PyPI вместе.
-
 # Данные и статистика
-# numpy зафиксирован на 1.26.4 для стабильности стека (проверено со scipy,
-# sklearn, matplotlib). pandas на 2.3.3: streamlit требует pandas<3.
 pandas==2.3.3
 numpy==1.26.4
 scipy==1.17.1
 statsmodels==0.14.6
 
-# Визуализация (matplotlib зафиксирован на 3.9.4: 3.10.x падал на savefig)
+# Визуализация
 matplotlib==3.9.4
 seaborn==0.13.2
 
@@ -38,17 +30,11 @@ catboost==1.2.7
 shap==0.46.0
 optuna==4.9.0
 
-# Онлайн-сервис поддержки решений (этап 10)
+# Онлайн-сервис поддержки решений
 streamlit==1.40.2
 altair==5.5.0
 
-# Презентация (правка .pptx из кода). lxml и XlsxWriter тянутся как зависимости.
-python-pptx==1.0.2
-lxml==6.1.1
-XlsxWriter==3.2.9
-
-# Ноутбуки. Связку ядра держим на стабильных версиях: conda-сборка ipykernel 7.x
-# и pyzmq роняли libzmq на Windows (ядро висло при подключении из IDE).
+# Ноутбуки
 jupyterlab==4.5.7
 ipykernel==6.29.5
 jupyter_client==8.6.3
