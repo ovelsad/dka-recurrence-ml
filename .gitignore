@@ -67,3 +67,21 @@ docs/*.pdf
 # Запись демо целиком, кроме обезличенного ролика для README
 docs/*.webm
 !docs/streamlit_demo.webm
+
+# Локальная конфигурация ассистента, в репозиторий не идет
+.claude/
+CLAUDE.md
+
+# Шаблон Springer (чужой копирайт, качается с сайта журнала)
+paper/sn_template/
+paper/overleaf/
+paper/*.zip
+
+# Внутренние рабочие заметки по подаче статьи
+paper/todo_submission.md
+
+# Материалы к выступлению и защите, не часть проекта
+docs/*.mp4
+docs/*.gif
+docs/Вопросы_и_ответы_по_проекту.md
+docs/текст выступления.txt
