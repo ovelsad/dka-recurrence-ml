@@ -41,7 +41,7 @@ YJ_COLS = ["ВЕ при поступлении", "Длительность СД 
 
 # Масштабочувствительные модели (на них преобразования и влияют) и деревья
 # (инвариантны к монотонным преобразованиям, включены для полноты таблицы).
-MODELS = ["logreg", "svm", "knn", "rf", "lgbm", "catboost"]
+MODELS = ["logreg", "svm", "knn", "rf", "lgbm", "catboost", "xgb"]
 FSETS = ["significant", "no_collinear"]
 VARIANTS = ["none", "manual", "yeojohnson_all"]
 
@@ -65,6 +65,12 @@ def _estimator(model):
         from catboost import CatBoostClassifier
         return CatBoostClassifier(iterations=300, verbose=0, random_state=RANDOM_SEED,
                                   auto_class_weights="Balanced")
+    if model == "xgb":
+        from xgboost import XGBClassifier
+        # scale_pos_weight - аналог class_weight="balanced" у остальных моделей:
+        # отношение числа наблюдений отрицательного класса к положительному.
+        return XGBClassifier(n_estimators=400, random_state=RANDOM_SEED,
+                             eval_metric="logloss", scale_pos_weight=149 / 69)
     raise ValueError(model)
 
 
