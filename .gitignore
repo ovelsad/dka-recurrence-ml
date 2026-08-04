@@ -82,3 +82,18 @@ docs/*.mp4
 docs/*.gif
 docs/Вопросы_и_ответы_по_проекту.md
 docs/текст выступления.txt
+
+# бэкап результатов на 273 пациентах (содержит данные пациентов)
+_bak273/
+
+# Врачебные отчеты в docx (данные пациентов) и промежуточный бэкап тюнинга
+reports/*.docx
+_prev_search_314/
+
+# Разовые скрипты генерации отчетов, не часть основного пайплайна
+build_doctor_report.py
+build_review_docx.py
+build_severity_docx.py
+build_severity_report.py
+clean_new_base.py
+update_doctor_docx.py

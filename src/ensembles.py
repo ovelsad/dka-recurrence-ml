@@ -34,8 +34,8 @@ from . import config, features, io
 from . import optuna_tuning as ot
 from .config import RANDOM_SEED
 
-MODELS = ["logreg", "rf", "xgb", "catboost"]
-SETS = ["significant", "no_collinear"]
+MODELS = ["logreg", "rf", "xgb", "lgbm", "catboost"]
+SETS = ["no_collinear"]
 FINALISTS = [(m, fs) for fs in SETS for m in MODELS]
 
 
@@ -134,6 +134,14 @@ def run() -> pd.DataFrame:
     print("\nТоп-5 комбинаций по OOF ROC-AUC:")
     print(table.head(5).to_string(index=False))
     print(f"\nЛучшая одиночная: {max(single, key=single.get)} = {max(single.values()):.3f}")
+
+    # Тест-срез трех лучших стеков на отложенном тесте (автоматизация ноутбука 11).
+    best_combos = [c.split(" + ") for c in table.head(3)["комбинация"]]
+    test_tbl = pd.DataFrame([evaluate_on_test(c) for c in best_combos])
+    test_tbl.to_csv(config.TABLES_DIR / "stacking_test.csv", index=False,
+                    encoding="utf-8-sig")
+    print("\nЛучшие стеки на тесте:")
+    print(test_tbl.to_string(index=False))
     return table
 
 

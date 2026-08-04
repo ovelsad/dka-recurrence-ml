@@ -1,8 +1,8 @@
 """Бутстрэп-доверительные интервалы и OOB-оценка финалистов (этап 13).
 
 Два независимых подтверждения устойчивости качества при малой выборке, на
-тюнингованных финалистах (логрег, лес, XGBoost, CatBoost на наборах significant и
-no_collinear), гиперпараметры из ноутбука 07.
+тюнингованных моделях (логрег, лес, XGBoost, LightGBM, CatBoost на наборе
+no_collinear), гиперпараметры из финального тюнинга (tuning_optuna_params.json).
 
 1. Бутстрэп-ДИ. Для каждого финалиста считаем ROC-AUC и PR-AUC на out-of-fold
    предсказаниях train (без утечки) с 95% доверительным интервалом по бутстрэпу
@@ -31,8 +31,8 @@ from . import optuna_tuning as ot
 from .config import RANDOM_SEED
 from .evaluation import bootstrap_metrics
 
-MODELS = ["logreg", "rf", "xgb", "catboost"]
-FSETS = ["significant", "no_collinear"]
+MODELS = ["logreg", "rf", "xgb", "lgbm", "catboost"]
+FSETS = ["no_collinear"]
 
 
 def _params():

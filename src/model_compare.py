@@ -1,12 +1,13 @@
 """Попарное сравнение разделяющей способности финалистов (этап 15).
 
 Заменяет узкую проверку "лучшая модель против логрега". Считаем попарные критерии
-DeLong между всеми восемью финалистами отдельно на out-of-fold обучающей части и на
-отложенном тесте, с поправкой Бенджамини-Хохберга на множественные сравнения. По числу
-значимых пар судим, можно ли вообще выделить лучшую модель.
+DeLong между всеми пятью моделями (логрег, лес, XGBoost, LightGBM, CatBoost) на наборе
+no_collinear, отдельно на out-of-fold обучающей части и на отложенном тесте, с поправкой
+Бенджамини-Хохберга на множественные сравнения. C(5,2) = 10 пар. По числу значимых пар
+судим, можно ли вообще выделить лучшую модель.
 
-Отдельно проверяем методологическую гипотезу о сложности: каждое сложное семейство
-(случайный лес, XGBoost, CatBoost) сравниваем с логистической регрессией на наборе без
+Отдельно смотрим сложные семейства против логрега: каждое сложное семейство (случайный
+лес, XGBoost, LightGBM, CatBoost) сравниваем с логистической регрессией на наборе без
 мультиколлинеарности, на OOF и на тесте, критерием DeLong и парным бутстрэпом.
 
 DeLong сравнивает связанные ROC-кривые (предсказания спарены по пациентам), метрика ROC
@@ -26,10 +27,10 @@ from . import optuna_tuning as ot
 from .config import RANDOM_SEED
 from .hypothesis_test import delong_test, paired_bootstrap
 
-MODELS = ["logreg", "rf", "xgb", "catboost"]
-FSETS = ["significant", "no_collinear"]
-LABELS = {"logreg": "логрег", "rf": "лес", "xgb": "XGBoost", "catboost": "CatBoost"}
-SETLAB = {"significant": "10", "no_collinear": "25"}
+MODELS = ["logreg", "rf", "xgb", "lgbm", "catboost"]
+FSETS = ["no_collinear"]
+LABELS = {"logreg": "логрег", "rf": "лес", "xgb": "XGBoost", "lgbm": "LightGBM",
+          "catboost": "CatBoost"}
 
 
 def _params():
@@ -38,8 +39,8 @@ def _params():
 
 
 def _fmt(key):
-    model, fset = key
-    return f"{LABELS[model]} ({SETLAB[fset]})"
+    model, _ = key
+    return LABELS[model]
 
 
 def _oof_proba(df, X_train, y_train, model, fset, feats, params):
@@ -110,7 +111,7 @@ def run() -> dict:
     h2_rows = []
     for split, proba, y in [("OOF", oof, y_tr), ("тест", test, y_te)]:
         sub = []
-        for model in ["rf", "xgb", "catboost"]:
+        for model in ["rf", "xgb", "lgbm", "catboost"]:
             ck = (model, fset)
             auc_c, auc_s, z, p, _ = delong_test(y, proba[ck], proba[logreg_key])
             d_mean, d_lo, d_hi, p_boot = paired_bootstrap(y, proba[ck],

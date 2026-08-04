@@ -47,7 +47,10 @@ def _estimator(model: str, balancing: str, y, cat_features=None):
     """Создает классификатор с учетом балансировки class_weight."""
     cw = "balanced" if balancing == "class_weight" else None
     if model == "logreg":
-        return LogisticRegression(max_iter=2000, class_weight=cw,
+        # Решатель под штраф подбирает optuna_tuning._build (l2->lbfgs, l1->liblinear,
+        # elasticnet->saga). saga - безопасный дефолт для нетюнинговых вызовов.
+        # max_iter с большим запасом под сходимость saga на стандартизованных данных.
+        return LogisticRegression(max_iter=10000, class_weight=cw, solver="saga",
                                   random_state=RANDOM_SEED)
     if model == "rf":
         return RandomForestClassifier(n_estimators=400, class_weight=cw,

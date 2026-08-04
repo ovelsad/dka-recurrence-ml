@@ -36,7 +36,7 @@ from . import config, features, io
 from . import optuna_tuning as ot
 from .config import RANDOM_SEED
 
-MODELS = ["logreg", "rf", "xgb", "catboost"]
+MODELS = ["logreg", "rf", "xgb", "lgbm", "catboost"]
 FSET = "no_collinear"
 TOPS = (5, 10, 15)
 N_REPS = 200
@@ -83,13 +83,20 @@ def _shap_importance(pipe, model: str, X_eval, feats_cat) -> dict:
     return _agg_source(dict(zip(names, mean_abs)), feats_cat)
 
 
-def run(n_reps: int = N_REPS, seed: int = RANDOM_SEED) -> pd.DataFrame:
-    df = io.load_processed()
+def run(n_reps: int = N_REPS, seed: int = RANDOM_SEED, df=None, params=None,
+        out_path=None, models=None) -> pd.DataFrame:
+    """Бутстрэп устойчивости SHAP. df/params/out_path позволяют прогнать на любой
+    базе (None -> текущая рабочая база и config.TABLES_DIR)."""
+    if df is None:
+        df = io.load_processed()
+    if params is None:
+        params = json.loads(
+            (config.TABLES_DIR / "tuning_optuna_params.json").read_text(encoding="utf-8"))
+    if models is None:
+        models = MODELS
     X_train, _, y_train, _ = features.make_split(df)
     feats = features.feature_sets(df)[FSET]
     _, feats_cat = features.column_types(df, feats)
-    params = json.loads(
-        (config.TABLES_DIR / "tuning_optuna_params.json").read_text(encoding="utf-8"))
 
     n = len(X_train)
     rng = np.random.default_rng(seed)
@@ -107,7 +114,7 @@ def run(n_reps: int = N_REPS, seed: int = RANDOM_SEED) -> pd.DataFrame:
             continue
         Xo = X_train.iloc[oob]
 
-        for model in MODELS:
+        for model in models:
             try:
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
@@ -139,7 +146,7 @@ def run(n_reps: int = N_REPS, seed: int = RANDOM_SEED) -> pd.DataFrame:
     # Частота попадания в ядро: признак в топ-k одновременно у всех моделей.
     core = (long.groupby(["топ", "повтор", "признак"])["модель"].nunique()
             .reset_index())
-    core = core[core["модель"] == len(MODELS)]
+    core = core[core["модель"] == len(models)]
     core_freq = (core.groupby(["топ", "признак"])["повтор"].nunique() / done).round(3)
 
     table = per_model.join(core_freq.rename("частота_ядра")).fillna(0.0)
@@ -149,7 +156,7 @@ def run(n_reps: int = N_REPS, seed: int = RANDOM_SEED) -> pd.DataFrame:
                                             ascending=[True, False])
 
     config.ensure_dirs()
-    out = config.TABLES_DIR / "shap_stability.csv"
+    out = out_path if out_path is not None else config.TABLES_DIR / "shap_stability.csv"
     table.to_csv(out, index=False, encoding="utf-8-sig")
     print(f"сохранено: {out}")
     return table
