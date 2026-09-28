@@ -1,0 +1,14 @@
+# Воспроизведение окружения проекта.
+# Создаем conda env с Python и ставим пакеты через pip из requirements.txt.
+#
+#   conda env create -f environment.yml
+#   conda activate dka
+#
+name: dka
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11.15
+  - pip
+  - pip:
+      - -r requirements.txt

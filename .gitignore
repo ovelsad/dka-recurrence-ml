@@ -1,0 +1,46 @@
+# Данные пациентов не коммитим (приватность медицинских данных)
+data/raw/
+data/interim/
+data/processed/
+*.xlsx
+*.xls
+*.csv
+*.parquet
+
+# Отчеты, таблицы и рисунки производны от данных пациентов и пересоздаются
+# ноутбуком, в репозиторий их не кладем. Документы для врачей тоже
+reports/*.md
+reports/*.docx
+reports/figures/
+reports/tables/
+
+# Артефакты обучения
+models/
+*.joblib
+*.pkl
+mlruns/
+catboost_info/
+
+# Python и ноутбуки
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.ruff_cache/
+.venv/
+venv/
+
+# Окружение и секреты
+.env
+
+# Шаблон журнала (чужой копирайт) и рабочие заметки по подаче статьи
+paper/sn_template/
+paper/overleaf/
+paper/*.zip
+paper/todo_submission.md
+
+# Системное
+.DS_Store
+Thumbs.db
+
+# Промежуточная верстка статьи
+paper/*.html

@@ -1,0 +1,45 @@
+# Данные и статистика
+pandas==2.3.3
+numpy==1.26.4
+scipy==1.17.1
+statsmodels==0.14.6
+
+# Визуализация
+matplotlib==3.9.4
+seaborn==0.13.2
+
+# Ввод-вывод
+openpyxl==3.1.5
+pyarrow==24.0.0
+
+# Машинное обучение (numba и llvmlite нужны shap)
+scikit-learn==1.5.2
+numba==0.65.1
+llvmlite==0.47.0
+joblib==1.5.3
+imbalanced-learn==0.12.4
+lightgbm==4.5.0
+catboost==1.2.7
+shap==0.46.0
+optuna==4.9.0
+
+# Приложение А: TabPFN (модель v2, считает локально; torch в версии для процессора,
+# ставится командой pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu)
+torch==2.14.0
+tabpfn==9.0.0
+
+# Приложение Б: генераторы синтетики SDV (гауссова копула и CTGAN), лицензия BUSL-1.1
+sdv==1.38.4
+rdt==1.22.0
+ctgan==0.12.1
+copulas==0.14.1
+
+# Ноутбуки
+jupyterlab==4.5.7
+ipykernel==6.29.5
+jupyter_client==8.6.3
+pyzmq==26.2.0
+tornado==6.4.2
+
+# Форматирование кода
+ruff==0.16.5
