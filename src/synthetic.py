@@ -50,7 +50,7 @@ from sklearn.base import BaseEstimator, ClassifierMixin, clone
 
 from . import config, evaluate
 from .eda import INK, short_name
-from .tuning import describe, fingerprint, read_info, replace_directory
+from .tuning import cache_fingerprint, describe, read_info, replace_directory
 
 # добавка к диагонали матрицы корреляций: защищает выборку из многомерного
 # нормального от крошечных отрицательных собственных чисел из-за округления
@@ -265,7 +265,7 @@ def settings(model: SyntheticAugment, X: pd.DataFrame, y: pd.Series) -> dict:
     return {
         "генератор": model.generator,
         "вариант": model.mode,
-        "данные": fingerprint(X, y),
+        "данные": cache_fingerprint(X, y),
         "фолды": [evaluate.N_FOLDS, evaluate.N_REPEATS],
         "зерно": model.random_state,
         "модель": {
@@ -295,13 +295,14 @@ def cross_validate_cached(
     if info is not None:
         oof = pd.read_csv(directory / "oof.csv", index_col=0)
         oof.columns = oof.columns.astype(int)
+        evaluate.validate_oof(oof, y)
         n_folds = len(info["ROC-AUC по фолдам"])
         return {
             "модель": name,
             "ROC-AUC по фолдам": info["ROC-AUC по фолдам"],
             "параметры по фолдам": [None] * n_folds,
             "пробы по фолдам": [None] * n_folds,
-            "oof": oof.reindex(y.index),
+            "oof": oof,
             "y": y,
         }
     result = evaluate.cross_validate(name, model, X, y)

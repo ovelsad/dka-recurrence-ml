@@ -300,12 +300,30 @@ def repeat_metrics(labels, scores) -> dict:
     }
 
 
+def validate_oof(oof: pd.DataFrame, y: pd.Series) -> None:
+    """Не допускает сравнение прогнозов и исходов разных пациентов"""
+    if (
+        not oof.index.is_unique
+        or not y.index.is_unique
+        or not oof.index.equals(y.index)
+    ):
+        raise ValueError(
+            "Порядок и уникальность индексов OOF и исхода должны совпадать"
+        )
+    if list(oof.columns) != list(range(N_REPEATS)):
+        raise ValueError("Неверное число или порядок повторов OOF")
+    values = oof.to_numpy(dtype=float)
+    if not np.isfinite(values).all() or ((values < 0) | (values > 1)).any():
+        raise ValueError("OOF должен содержать конечные вероятности от 0 до 1")
+
+
 def summarize(result: dict) -> dict:
     """Строка сводной таблицы: CV по фолдам, метрики OOF как среднее по повторам
 
     Для ROC-AUC рядом показан размах по повторам. Метрики при пороге - в
     operating_points
     """
+    validate_oof(result["oof"], result["y"])
     labels = result["y"].to_numpy()
     repeats = result["oof"].to_numpy().T
     per_repeat = pd.DataFrame([repeat_metrics(labels, scores) for scores in repeats])
@@ -582,7 +600,7 @@ def plot_cv_auc(table: pd.DataFrame) -> plt.Figure:
     """ROC-AUC OOF по моделям с 95% бутстрэп-ДИ
 
     table - сводная таблица summary_table, модели идут сверху вниз в ее порядке.
-    Если ДИ моделей перекрываются, лучшую по этим данным выявить нельзя
+    Перекрытие ДИ не доказывает равенства моделей и не заменяет тест разности
     """
     table = table.reset_index(drop=True)
     positions = np.arange(len(table))[::-1]

@@ -1,46 +1,61 @@
-# Данные пациентов не коммитим (приватность медицинских данных)
-data/raw/
-data/interim/
-data/processed/
+# Приватные данные и рабочие результаты
+/data/
+/reports/
+/.local/
+/tmp/
+/models/
 *.xlsx
 *.xls
 *.csv
+!supplementary/tables/*.csv
 *.parquet
-
-# Отчеты, таблицы и рисунки производны от данных пациентов и пересоздаются
-# ноутбуком, в репозиторий их не кладем. Документы для врачей тоже
-reports/*.md
-reports/*.docx
-reports/figures/
-reports/tables/
-
-# Артефакты обучения
-models/
 *.joblib
 *.pkl
+*.pickle
+*.npy
+*.npz
+*.sqlite
+*.db
+*.zip
+*.docx
 mlruns/
 catboost_info/
 
-# Python и ноутбуки
+# Локальные инструкции и память
+/.claude/
+/AGENTS.md
+/CLAUDE.md
+/PROJECT_BRIEF.md
+
+# Рабочие рукописи сохранены локально
+/paper/Sadykhov_DKA_recurrence_*
+/paper/abstract_ru.pdf
+/paper/crm_template/
+/paper/sn_template/
+/paper/overleaf/
+/paper/todo_submission.md
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Окружение и промежуточные файлы
+.env
+.env.*
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
 .ruff_cache/
 .venv/
 venv/
-
-# Окружение и секреты
-.env
-
-# Шаблон журнала (чужой копирайт) и рабочие заметки по подаче статьи
-paper/sn_template/
-paper/overleaf/
-paper/*.zip
-paper/todo_submission.md
-
-# Системное
 .DS_Store
 Thumbs.db
 
-# Промежуточная верстка статьи
-paper/*.html
+# Локальная сборка официального шаблона
+/paper/crm-article.cls
+/paper/rcdthm.sty
+/paper/crm-logo.*
+/paper/manuscript_crm.pdf

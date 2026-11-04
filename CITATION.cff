@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "При использовании кода ссылайтесь на этот репозиторий. Библиографические сведения статьи будут добавлены после публикации."
+type: software
+title: "Клинические факторы рецидивирующего течения диабетического кетоацидоза: код исследования"
+authors:
+  - family-names: Sadykhov
+    given-names: Oleg B.
+    affiliation: ITMO University
+repository-code: "https://github.com/ovelsad/dka-recurrence-ml"
+license: MIT

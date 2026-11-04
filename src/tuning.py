@@ -18,6 +18,7 @@
 пересчитать, папку достаточно удалить
 """
 
+import hashlib
 import json
 import shutil
 
@@ -203,10 +204,31 @@ def search(name: str) -> OptunaSearch:
 
 
 def fingerprint(X: pd.DataFrame, y: pd.Series) -> str:
-    """Отпечаток данных: меняется при правке любого значения, пациента или столбца"""
+    """Исторический отпечаток заморозки моделей, сохранен для совместимости
+
+    Не учитывает порядок строк, поэтому для кэша используется cache_fingerprint
+    """
     values = pd.util.hash_pandas_object(pd.concat([X, y], axis=1), index=True)
     columns = pd.util.hash_pandas_object(pd.Index([*X.columns, y.name]))
     return f"{values.sum() % 2**64:x}-{columns.sum() % 2**64:x}"
+
+
+def cache_fingerprint(X: pd.DataFrame, y: pd.Series) -> str:
+    """Отпечаток значений, порядка строк, колонок и типов для кэша CV"""
+    if not X.index.equals(y.index) or not X.index.is_unique:
+        raise ValueError(
+            "Индексы признаков и исхода должны совпадать и быть уникальными"
+        )
+    frame = pd.concat([X, y], axis=1)
+    digest = hashlib.sha256()
+    digest.update(
+        pd.util.hash_pandas_object(frame, index=True).to_numpy(dtype="<u8").tobytes()
+    )
+    schema = [
+        (str(column), str(dtype)) for column, dtype in zip(frame.columns, frame.dtypes)
+    ]
+    digest.update(json.dumps(schema, ensure_ascii=False).encode("utf-8"))
+    return "ordered-v1:" + digest.hexdigest()
 
 
 def describe(value):
@@ -236,7 +258,7 @@ def settings(name: str, X: pd.DataFrame, y: pd.Series) -> dict:
         "пространство": SPACES[name],
         "проб": N_TRIALS,
         "случайных проб": N_STARTUP_TRIALS,
-        "данные": fingerprint(X, y),
+        "данные": cache_fingerprint(X, y),
         "фолды": [evaluate.N_FOLDS, evaluate.N_REPEATS, models.INNER_FOLDS],
         "зерно": config.RANDOM_SEED,
         "модель без подбора": {
@@ -290,6 +312,7 @@ def cross_validate_cached(name: str, X: pd.DataFrame, y: pd.Series) -> dict:
     if info is not None:
         oof = pd.read_csv(directory / "oof.csv", index_col=0)
         oof.columns = oof.columns.astype(int)
+        evaluate.validate_oof(oof, y)
         trials = pd.read_csv(directory / "trials.csv")
         return {
             "модель": name,

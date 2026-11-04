@@ -1,0 +1,699 @@
+{
+  "status": "pre-submission; ethics approval pending",
+  "prepared_date": "2026-11-04",
+  "files": [
+    {
+      "path": ".gitattributes"
+    },
+    {
+      "path": ".github/workflows/publication.yml"
+    },
+    {
+      "path": ".gitignore"
+    },
+    {
+      "path": "CHANGELOG.md"
+    },
+    {
+      "path": "CITATION.cff"
+    },
+    {
+      "path": "LICENSE"
+    },
+    {
+      "path": "README.md"
+    },
+    {
+      "path": "docs/data_dictionary.md"
+    },
+    {
+      "path": "docs/publication.md"
+    },
+    {
+      "path": "docs/reproduction.md"
+    },
+    {
+      "path": "environment.yml"
+    },
+    {
+      "path": "notebooks/pipeline.ipynb"
+    },
+    {
+      "path": "paper/README.md"
+    },
+    {
+      "path": "paper/fig1_shap_logreg_b.png",
+      "sha256": "66cf28654396a6735ef0280273c1ffe2ae4cc25d528449e1847341c78b245038"
+    },
+    {
+      "path": "paper/fig2_shap_catboost.png",
+      "sha256": "1748310143789f848b19c461acce60add9866d8d9423b41ad67981fa4f89d2ac"
+    },
+    {
+      "path": "paper/make_figures.py"
+    },
+    {
+      "path": "paper/manuscript_crm.tex",
+      "sha256": "e2a87dd3897bea0add1289e4947a575a6832230c1a52843b6df524f2d6408da5"
+    },
+    {
+      "path": "paper/manuscript_ru.md",
+      "sha256": "e50514058b71e222dd2444cf3921ec16a749f6f533dc372a7a0871847fb963f5"
+    },
+    {
+      "path": "paper/manuscript_ru.pdf",
+      "sha256": "30aab183efe8684d818ca9e2a9486465c33327199ef7c057a16deaeff8f42661"
+    },
+    {
+      "path": "requirements-optional.txt"
+    },
+    {
+      "path": "requirements.txt"
+    },
+    {
+      "path": "scripts/check_publication.py"
+    },
+    {
+      "path": "scripts/package_release.py"
+    },
+    {
+      "path": "scripts/run_analysis.py"
+    },
+    {
+      "path": "src/__init__.py"
+    },
+    {
+      "path": "src/config.py"
+    },
+    {
+      "path": "src/data.py"
+    },
+    {
+      "path": "src/eda.py"
+    },
+    {
+      "path": "src/evaluate.py"
+    },
+    {
+      "path": "src/finalist.py"
+    },
+    {
+      "path": "src/importance.py"
+    },
+    {
+      "path": "src/interactions.py"
+    },
+    {
+      "path": "src/models.py"
+    },
+    {
+      "path": "src/screening.py"
+    },
+    {
+      "path": "src/selection.py"
+    },
+    {
+      "path": "src/stats.py"
+    },
+    {
+      "path": "src/structure.py"
+    },
+    {
+      "path": "src/synthetic.py"
+    },
+    {
+      "path": "src/thresholds.py"
+    },
+    {
+      "path": "src/tuning.py"
+    },
+    {
+      "path": "supplementary/README.md",
+      "sha256": "5ae2ced551db5ff22402abd4c96b2fe693f9f157cd0687bd68dbc212ff2be347"
+    },
+    {
+      "path": "supplementary/catalog.json",
+      "sha256": "6fd6627927e04bd5e23a4543f7b201e977aa3e31c0c0c2290088d2e5cd9e1e58"
+    },
+    {
+      "path": "supplementary/tables/final_parameters.csv",
+      "sha256": "085a383d3e3d458c6493ce66db9f916238dd8ee223d7603eba43624fd029a7ad",
+      "columns": [
+        "модель",
+        "параметр",
+        "значение"
+      ],
+      "rows": 27
+    },
+    {
+      "path": "supplementary/tables/step10_fold_ranks.csv",
+      "sha256": "068b95139c31dc6ec4902c64dba10042d700960d1f09e859456dbe4102dcd926",
+      "columns": [
+        "признак",
+        "CatBoost",
+        "случайный лес",
+        "медианный ранг",
+        "логрег А",
+        "логрег Б"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step10_fold_top_frequency.csv",
+      "sha256": "636913a260a863440d6a6cfb9ad11685ed7c764c2e5a812e4e542bbff538ca23",
+      "columns": [
+        "признак",
+        "логрег А",
+        "логрег Б",
+        "CatBoost",
+        "случайный лес"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step10_pairs.csv",
+      "sha256": "a4b8477c3f0b95ad55af3b66d08e363c96e343e325652837b58548c8d03e5f1d",
+      "columns": [
+        "место",
+        "признак 1",
+        "признак 2",
+        "средний модуль вклада пары"
+      ],
+      "rows": 10
+    },
+    {
+      "path": "supplementary/tables/step10_ranks.csv",
+      "sha256": "e1ec32474ef132b8b36bf4f453b098f29581239a841852827d9f50ebfde9b340",
+      "columns": [
+        "признак",
+        "CatBoost",
+        "случайный лес",
+        "медианный ранг",
+        "логрег А",
+        "логрег Б"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step10_rules.csv",
+      "sha256": "ac9a5be5573f47c9629ad795509e8bdce03bd4da38e97f89d441055549f491d3",
+      "columns": [
+        "правило",
+        "пациентов",
+        "рецидивов",
+        "доля рецидива"
+      ],
+      "rows": 3
+    },
+    {
+      "path": "supplementary/tables/step10_rules_params_by_fold.csv",
+      "sha256": "e8aaff2d964580bfb87536f8e32c634c3a14f554b020b0b221ffc597bdc92c94",
+      "columns": [
+        "ccp_alpha",
+        "criterion",
+        "max_depth",
+        "min_samples_leaf"
+      ],
+      "rows": 25
+    },
+    {
+      "path": "supplementary/tables/step10_rules_quality.csv",
+      "sha256": "7b4e9850727523b8d0211170587f5b85be7b23f0974f56e4508f556d7406c42a",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier масштабированный"
+      ],
+      "rows": 2
+    },
+    {
+      "path": "supplementary/tables/step10_rules_stability.csv",
+      "sha256": "450e5c59a8dc05a5fd670b5fe7c73ade9d70b39903e8ca92cdf3c321138ec517",
+      "columns": [
+        "признак",
+        "доля ресэмплов"
+      ],
+      "rows": 22
+    },
+    {
+      "path": "supplementary/tables/step10_summary.csv",
+      "sha256": "e961a6e051ce6f8880e73f69ffb689ad9beb3ff342c6225e81bf6319e19085e0",
+      "columns": [
+        "признак",
+        "методов отбора из 5",
+        "в наборе голосования",
+        "доля фолдов в голосовании",
+        "ранг SHAP, логрег А",
+        "ранг SHAP, деревья"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step10_top_frequency.csv",
+      "sha256": "d61cba58375ce633a606187c9d0548c8eb5c3e553585f40c1762698a6e3e1635",
+      "columns": [
+        "признак",
+        "логрег А",
+        "логрег Б",
+        "CatBoost",
+        "случайный лес"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step11_test.csv",
+      "sha256": "32fe6db36633076ad30ca6d73e95c2cacb8fc29ee95049ebe1e11cb4adf8a3c8",
+      "columns": [
+        "модель",
+        "ROC-AUC",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier эталон",
+        "Brier",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем",
+        "OOF train",
+        "OOF ДИ низ",
+        "OOF ДИ верх",
+        "внутри ДИ OOF"
+      ],
+      "rows": 2
+    },
+    {
+      "path": "supplementary/tables/step11_thresholds.csv",
+      "sha256": "97decd13912890fe89e242a83cba41bdeb91c07c4333a9bfd5e95dd3862fc981",
+      "columns": [
+        "модель",
+        "порог",
+        "значение",
+        "TP",
+        "FP",
+        "TN",
+        "FN",
+        "чувствительность",
+        "специфичность",
+        "PPV",
+        "NPV",
+        "доля помеченных",
+        "выборка"
+      ],
+      "rows": 8
+    },
+    {
+      "path": "supplementary/tables/step1_recurrence_categorical.csv",
+      "sha256": "6d8fc4bf4ecc574f31dbe773e48f1bc2dad03f8b297bd1fdbf8c500ea1ebbc6a",
+      "columns": [
+        "показатель",
+        "категория",
+        "нет",
+        "да",
+        "критерий",
+        "p",
+        "ОШ (95% ДИ)"
+      ],
+      "rows": 31
+    },
+    {
+      "path": "supplementary/tables/step1_recurrence_quantitative.csv",
+      "sha256": "5e4909d6c77fc4f2a97ee2d844d1f81ffed08e23dbdbd563fe5b8f27407070ed",
+      "columns": [
+        "показатель",
+        "нет",
+        "да",
+        "n нет",
+        "n да",
+        "критерий",
+        "p"
+      ],
+      "rows": 15
+    },
+    {
+      "path": "supplementary/tables/step3_baseline.csv",
+      "sha256": "a74682312e1dc2103715e73344c31787c6087755abc8fceb8e80bca5da8342b9",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 1
+    },
+    {
+      "path": "supplementary/tables/step4_imputation.csv",
+      "sha256": "e211838226588b22ed2c0ee20a5ccb60b1f62e7291ed7e172dbbd1c14926bad3",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 3
+    },
+    {
+      "path": "supplementary/tables/step5_imbalance.csv",
+      "sha256": "0c4725252cf8c33cdb6aa305fc63b58c6793a59bee26e68e18e0ba06c26da2a6",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 3
+    },
+    {
+      "path": "supplementary/tables/step6_grid.csv",
+      "sha256": "f4a729a7dc1a7c011ac05c9cce72625107b71b0a19fe7590c052a5311683f0a3",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 2
+    },
+    {
+      "path": "supplementary/tables/step6_params_by_fold.csv",
+      "sha256": "91f25a3b27b455770eea291bdf3890f50a2e0338d09f6f6e22984c6aac6c27b2",
+      "columns": [
+        "C",
+        "penalty",
+        "solver"
+      ],
+      "rows": 25
+    },
+    {
+      "path": "supplementary/tables/step7_methods.csv",
+      "sha256": "db2e1d349d7bca5774cdce29fcde30439c42b7f5153dbe0f6c8012084dc98f10",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 7
+    },
+    {
+      "path": "supplementary/tables/step7_selection_frequency.csv",
+      "sha256": "6649a8af4f087b6c34d49821ff82a9b908d650de4c6fc3566895a7945e9907a4",
+      "columns": [
+        "признак",
+        "одномерный",
+        "жадный вперед",
+        "жадный назад",
+        "L1",
+        "elastic net",
+        "голосование"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step7_sets.csv",
+      "sha256": "f2b96421a474faad5933d5ee7477c640850df9cb435d2ee7d33dc559450871fe",
+      "columns": [
+        "признак",
+        "одномерный",
+        "жадный вперед",
+        "жадный назад",
+        "L1",
+        "elastic net",
+        "голосование",
+        "голосов"
+      ],
+      "rows": 24
+    },
+    {
+      "path": "supplementary/tables/step8_boundaries.csv",
+      "sha256": "6c613fdfadaf76ff4f2d978b6e9fd210a11bc487a14eb647657b8e169727dcdf",
+      "columns": [
+        "модель",
+        "параметр",
+        "от",
+        "до",
+        "медиана выбранных",
+        "у нижнего края",
+        "у верхнего края"
+      ],
+      "rows": 16
+    },
+    {
+      "path": "supplementary/tables/step8_choices.csv",
+      "sha256": "9d6bb52666d8ffb87ea3a0980eb3ca27df8b3c1fe85f3329fa0a25b92e17ce91",
+      "columns": [
+        "модель",
+        "параметр",
+        "вариант",
+        "фолдов"
+      ],
+      "rows": 4
+    },
+    {
+      "path": "supplementary/tables/step8_convergence.csv",
+      "sha256": "985fffa5822333ac185ab5775f0aa03c113cf74cd4b4c47f793a33903c78594e",
+      "columns": [
+        "модель",
+        "медиана лучшего к пробе 30",
+        "медиана лучшего к последней пробе",
+        "фолдов с ростом после пробы 30",
+        "фолдов"
+      ],
+      "rows": 3
+    },
+    {
+      "path": "supplementary/tables/step8_models.csv",
+      "sha256": "e48e7183b951da233b23d1f13352263fcfc30c7412354975a1bc6ac72e5f2d3b",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 3
+    },
+    {
+      "path": "supplementary/tables/step9_final_fixed_threshold.csv",
+      "sha256": "75613162dc447ecf45fbdad1100ac589ad31a3a7d4924994e6f20e2e74348ef4",
+      "columns": [
+        "модель",
+        "порог",
+        "значение",
+        "TP",
+        "FP",
+        "TN",
+        "FN",
+        "чувствительность",
+        "специфичность",
+        "PPV",
+        "NPV",
+        "доля помеченных"
+      ],
+      "rows": 8
+    },
+    {
+      "path": "supplementary/tables/step9_final_models.csv",
+      "sha256": "9bfed7a717341f6cb333bb19699bafbbe1313f53aae17155a97d9b0c4dad392e",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 4
+    },
+    {
+      "path": "supplementary/tables/step9_models.csv",
+      "sha256": "4ee655661cbe140211a392c322010201ac3e444bb0c9e6b92d455dfe99983090",
+      "columns": [
+        "модель",
+        "ROC-AUC CV среднее",
+        "ROC-AUC CV SD",
+        "ROC-AUC OOF",
+        "ROC-AUC OOF мин",
+        "ROC-AUC OOF макс",
+        "ROC-AUC ДИ низ",
+        "ROC-AUC ДИ верх",
+        "AP OOF",
+        "AP ДИ низ",
+        "AP ДИ верх",
+        "Brier",
+        "Brier эталон",
+        "Brier масштабированный",
+        "калибровка: наклон",
+        "калибровка в среднем"
+      ],
+      "rows": 4
+    },
+    {
+      "path": "supplementary/tables/step9_operating_points.csv",
+      "sha256": "ae721729be0d6c3cf0fdffb3507f8607dfd88d5193bdc145bc8a7e93a2d7472d",
+      "columns": [
+        "модель",
+        "правило",
+        "порог",
+        "порог мин",
+        "порог макс",
+        "повторов с порогом",
+        "TP",
+        "FP",
+        "TN",
+        "FN",
+        "чувствительность",
+        "специфичность",
+        "PPV",
+        "NPV",
+        "доля помеченных"
+      ],
+      "rows": 12
+    },
+    {
+      "path": "supplementary/tables/threshold_pairs.csv",
+      "sha256": "16c3733b9a930ec4537675d624555a9d18e09f975a23c841cbf195703f8fbab8",
+      "columns": [
+        "сочетание",
+        "известны оба",
+        "чувствительность",
+        "специфичность",
+        "пациентов с условием",
+        "рецидив при условии",
+        "доля при условии",
+        "рецидив без условия",
+        "доля без условия",
+        "ОШ",
+        "ОШ ДИ низ",
+        "ОШ ДИ верх",
+        "критерий",
+        "p"
+      ],
+      "rows": 3
+    },
+    {
+      "path": "supplementary/tables/thresholds.csv",
+      "sha256": "99eb8efbec0a9b8c8c79af63e5516fbb867bfe2b28f0b2c5fc9e22b4233f3187",
+      "columns": [
+        "признак",
+        "известно",
+        "условие",
+        "направление",
+        "порог",
+        "порог ДИ низ",
+        "порог ДИ верх",
+        "чувствительность",
+        "специфичность",
+        "пациентов с условием",
+        "рецидив при условии",
+        "доля при условии",
+        "рецидив без условия",
+        "доля без условия",
+        "ОШ",
+        "ОШ ДИ низ",
+        "ОШ ДИ верх",
+        "критерий",
+        "p"
+      ],
+      "rows": 4
+    },
+    {
+      "path": "tests/test_analysis.py"
+    },
+    {
+      "path": "tests/test_publication.py"
+    }
+  ]
+}

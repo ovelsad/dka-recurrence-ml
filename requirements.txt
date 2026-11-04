@@ -23,18 +23,9 @@ catboost==1.2.7
 shap==0.46.0
 optuna==4.9.0
 
-# Приложение А: TabPFN (модель v2, считает локально; torch в версии для процессора,
-# ставится командой pip install torch==2.14.0 --index-url https://download.pytorch.org/whl/cpu)
-torch==2.14.0
-tabpfn==9.0.0
-
-# Приложение Б: генераторы синтетики SDV (гауссова копула и CTGAN), лицензия BUSL-1.1
-sdv==1.38.4
-rdt==1.22.0
-ctgan==0.12.1
-copulas==0.14.1
-
 # Ноутбуки
+nbconvert==7.17.1
+nbformat==5.10.4
 jupyterlab==4.5.7
 ipykernel==6.29.5
 jupyter_client==8.6.3

@@ -1,0 +1,727 @@
+[
+  {
+    "file": "supplementary/tables/step1_recurrence_quantitative.csv",
+    "source": "reports/tables/step1_recurrence_quantitative.csv",
+    "description": "Сравнение количественных показателей по течению ДКА",
+    "rows": 15,
+    "columns": [
+      "показатель",
+      "нет",
+      "да",
+      "n нет",
+      "n да",
+      "критерий",
+      "p"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках",
+      "оставлены только 24 моделируемых признака, исключены вспомогательные анамнестические поля",
+      "нулевое округленное p обозначено <0.001",
+      "название показателя повторено для каждой категории вместо пустых ячеек"
+    ],
+    "sha256": "5e4909d6c77fc4f2a97ee2d844d1f81ffed08e23dbdbd563fe5b8f27407070ed"
+  },
+  {
+    "file": "supplementary/tables/step1_recurrence_categorical.csv",
+    "source": "reports/tables/step1_recurrence_categorical.csv",
+    "description": "Сравнение категориальных показателей по течению ДКА",
+    "rows": 31,
+    "columns": [
+      "показатель",
+      "категория",
+      "нет",
+      "да",
+      "критерий",
+      "p",
+      "ОШ (95% ДИ)"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках",
+      "оставлены только 24 моделируемых признака, исключены вспомогательные анамнестические поля",
+      "нулевое округленное p обозначено <0.001",
+      "название показателя повторено для каждой категории вместо пустых ячеек"
+    ],
+    "sha256": "6d8fc4bf4ecc574f31dbe773e48f1bc2dad03f8b297bd1fdbf8c500ea1ebbc6a"
+  },
+  {
+    "file": "supplementary/tables/step3_baseline.csv",
+    "source": "reports/tables/step3_baseline.csv",
+    "description": "Базовая логистическая регрессия",
+    "rows": 1,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "a74682312e1dc2103715e73344c31787c6087755abc8fceb8e80bca5da8342b9"
+  },
+  {
+    "file": "supplementary/tables/step4_imputation.csv",
+    "source": "reports/tables/step4_imputation.csv",
+    "description": "Сравнение способов импутации",
+    "rows": 3,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "e211838226588b22ed2c0ee20a5ccb60b1f62e7291ed7e172dbbd1c14926bad3"
+  },
+  {
+    "file": "supplementary/tables/step5_imbalance.csv",
+    "source": "reports/tables/step5_imbalance.csv",
+    "description": "Сравнение способов работы с дисбалансом",
+    "rows": 3,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "0c4725252cf8c33cdb6aa305fc63b58c6793a59bee26e68e18e0ba06c26da2a6"
+  },
+  {
+    "file": "supplementary/tables/step6_grid.csv",
+    "source": "reports/tables/step6_grid.csv",
+    "description": "Логистическая регрессия А, вложенная оценка",
+    "rows": 2,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "f4a729a7dc1a7c011ac05c9cce72625107b71b0a19fe7590c052a5311683f0a3"
+  },
+  {
+    "file": "supplementary/tables/step6_params_by_fold.csv",
+    "source": "reports/tables/step6_params_by_fold.csv",
+    "description": "Параметры ЛР А по внешним фолдам",
+    "rows": 25,
+    "columns": [
+      "C",
+      "penalty",
+      "solver"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "91f25a3b27b455770eea291bdf3890f50a2e0338d09f6f6e22984c6aac6c27b2"
+  },
+  {
+    "file": "supplementary/tables/step7_methods.csv",
+    "source": "reports/tables/step7_methods.csv",
+    "description": "Пять процедур отбора и голосование",
+    "rows": 7,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "db2e1d349d7bca5774cdce29fcde30439c42b7f5153dbe0f6c8012084dc98f10"
+  },
+  {
+    "file": "supplementary/tables/step7_selection_frequency.csv",
+    "source": "reports/tables/step7_selection_frequency.csv",
+    "description": "Частоты отбора признаков по внешним фолдам",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "одномерный",
+      "жадный вперед",
+      "жадный назад",
+      "L1",
+      "elastic net",
+      "голосование"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "6649a8af4f087b6c34d49821ff82a9b908d650de4c6fc3566895a7945e9907a4"
+  },
+  {
+    "file": "supplementary/tables/step7_sets.csv",
+    "source": "reports/tables/step7_sets.csv",
+    "description": "Наборы признаков на всей обучающей части",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "одномерный",
+      "жадный вперед",
+      "жадный назад",
+      "L1",
+      "elastic net",
+      "голосование",
+      "голосов"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "f2b96421a474faad5933d5ee7477c640850df9cb435d2ee7d33dc559450871fe"
+  },
+  {
+    "file": "supplementary/tables/step8_models.csv",
+    "source": "reports/tables/step8_models.csv",
+    "description": "Вложенная оценка древесных моделей",
+    "rows": 3,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "e48e7183b951da233b23d1f13352263fcfc30c7412354975a1bc6ac72e5f2d3b"
+  },
+  {
+    "file": "supplementary/tables/step8_boundaries.csv",
+    "source": "reports/tables/step8_boundaries.csv",
+    "description": "Выбранные параметры и края диапазонов поиска",
+    "rows": 16,
+    "columns": [
+      "модель",
+      "параметр",
+      "от",
+      "до",
+      "медиана выбранных",
+      "у нижнего края",
+      "у верхнего края"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "6c613fdfadaf76ff4f2d978b6e9fd210a11bc487a14eb647657b8e169727dcdf"
+  },
+  {
+    "file": "supplementary/tables/step8_choices.csv",
+    "source": "reports/tables/step8_choices.csv",
+    "description": "Частоты выбора категориальных гиперпараметров",
+    "rows": 4,
+    "columns": [
+      "модель",
+      "параметр",
+      "вариант",
+      "фолдов"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "9d6bb52666d8ffb87ea3a0980eb3ca27df8b3c1fe85f3329fa0a25b92e17ce91"
+  },
+  {
+    "file": "supplementary/tables/step8_convergence.csv",
+    "source": "reports/tables/step8_convergence.csv",
+    "description": "Сходимость поиска Optuna",
+    "rows": 3,
+    "columns": [
+      "модель",
+      "медиана лучшего к пробе 30",
+      "медиана лучшего к последней пробе",
+      "фолдов с ростом после пробы 30",
+      "фолдов"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "985fffa5822333ac185ab5775f0aa03c113cf74cd4b4c47f793a33903c78594e"
+  },
+  {
+    "file": "supplementary/tables/step9_models.csv",
+    "source": "reports/tables/step9_models.csv",
+    "description": "Основное сравнение моделей по вложенной CV",
+    "rows": 4,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "4ee655661cbe140211a392c322010201ac3e444bb0c9e6b92d455dfe99983090"
+  },
+  {
+    "file": "supplementary/tables/step9_operating_points.csv",
+    "source": "reports/tables/step9_operating_points.csv",
+    "description": "Рабочие точки по OOF, пороги выбраны на тех же прогнозах",
+    "rows": 12,
+    "columns": [
+      "модель",
+      "правило",
+      "порог",
+      "порог мин",
+      "порог макс",
+      "повторов с порогом",
+      "TP",
+      "FP",
+      "TN",
+      "FN",
+      "чувствительность",
+      "специфичность",
+      "PPV",
+      "NPV",
+      "доля помеченных"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "ae721729be0d6c3cf0fdffb3507f8607dfd88d5193bdc145bc8a7e93a2d7472d"
+  },
+  {
+    "file": "supplementary/tables/step9_final_models.csv",
+    "source": "reports/tables/step9_final_models.csv",
+    "description": "Фиксированные конфигурации, оценка не вложена в выбор конфигурации",
+    "rows": 4,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier эталон",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "9bfed7a717341f6cb333bb19699bafbbe1313f53aae17155a97d9b0c4dad392e"
+  },
+  {
+    "file": "supplementary/tables/step9_final_fixed_threshold.csv",
+    "source": "reports/tables/step9_final_fixed_threshold.csv",
+    "description": "OOF при зафиксированных порогах финальных конфигураций",
+    "rows": 8,
+    "columns": [
+      "модель",
+      "порог",
+      "значение",
+      "TP",
+      "FP",
+      "TN",
+      "FN",
+      "чувствительность",
+      "специфичность",
+      "PPV",
+      "NPV",
+      "доля помеченных"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "75613162dc447ecf45fbdad1100ac589ad31a3a7d4924994e6f20e2e74348ef4"
+  },
+  {
+    "file": "supplementary/tables/step10_ranks.csv",
+    "source": "reports/tables/step10_ranks.csv",
+    "description": "Ранги SHAP на всей обучающей части",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "CatBoost",
+      "случайный лес",
+      "медианный ранг",
+      "логрег А",
+      "логрег Б"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "e1ec32474ef132b8b36bf4f453b098f29581239a841852827d9f50ebfde9b340"
+  },
+  {
+    "file": "supplementary/tables/step10_top_frequency.csv",
+    "source": "reports/tables/step10_top_frequency.csv",
+    "description": "Бутстрэп-устойчивость попадания в топ-5 SHAP",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "логрег А",
+      "логрег Б",
+      "CatBoost",
+      "случайный лес"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "d61cba58375ce633a606187c9d0548c8eb5c3e553585f40c1762698a6e3e1635"
+  },
+  {
+    "file": "supplementary/tables/step10_fold_ranks.csv",
+    "source": "reports/tables/step10_fold_ranks.csv",
+    "description": "Ранги SHAP на валидационных частях внешних фолдов",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "CatBoost",
+      "случайный лес",
+      "медианный ранг",
+      "логрег А",
+      "логрег Б"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "068b95139c31dc6ec4902c64dba10042d700960d1f09e859456dbe4102dcd926"
+  },
+  {
+    "file": "supplementary/tables/step10_fold_top_frequency.csv",
+    "source": "reports/tables/step10_fold_top_frequency.csv",
+    "description": "Частоты попадания в топ-5 SHAP по внешним фолдам",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "логрег А",
+      "логрег Б",
+      "CatBoost",
+      "случайный лес"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "636913a260a863440d6a6cfb9ad11685ed7c764c2e5a812e4e542bbff538ca23"
+  },
+  {
+    "file": "supplementary/tables/step10_pairs.csv",
+    "source": "reports/tables/step10_pairs.csv",
+    "description": "Парные вклады SHAP случайного леса",
+    "rows": 10,
+    "columns": [
+      "место",
+      "признак 1",
+      "признак 2",
+      "средний модуль вклада пары"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "a4b8477c3f0b95ad55af3b66d08e363c96e343e325652837b58548c8d03e5f1d"
+  },
+  {
+    "file": "supplementary/tables/step10_rules.csv",
+    "source": "reports/tables/step10_rules.csv",
+    "description": "Агрегированные листья дерева правил",
+    "rows": 3,
+    "columns": [
+      "правило",
+      "пациентов",
+      "рецидивов",
+      "доля рецидива"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "ac9a5be5573f47c9629ad795509e8bdce03bd4da38e97f89d441055549f491d3"
+  },
+  {
+    "file": "supplementary/tables/step10_rules_params_by_fold.csv",
+    "source": "reports/tables/step10_rules_params_by_fold.csv",
+    "description": "Параметры дерева правил по внешним фолдам",
+    "rows": 25,
+    "columns": [
+      "ccp_alpha",
+      "criterion",
+      "max_depth",
+      "min_samples_leaf"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "e8aaff2d964580bfb87536f8e32c634c3a14f554b020b0b221ffc597bdc92c94"
+  },
+  {
+    "file": "supplementary/tables/step10_rules_quality.csv",
+    "source": "reports/tables/step10_rules_quality.csv",
+    "description": "Вложенная оценка дерева правил",
+    "rows": 2,
+    "columns": [
+      "модель",
+      "ROC-AUC CV среднее",
+      "ROC-AUC CV SD",
+      "ROC-AUC OOF",
+      "ROC-AUC OOF мин",
+      "ROC-AUC OOF макс",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP OOF",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier",
+      "Brier масштабированный"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "7b4e9850727523b8d0211170587f5b85be7b23f0974f56e4508f556d7406c42a"
+  },
+  {
+    "file": "supplementary/tables/step10_rules_stability.csv",
+    "source": "reports/tables/step10_rules_stability.csv",
+    "description": "Частоты использования признаков в дереве правил",
+    "rows": 22,
+    "columns": [
+      "признак",
+      "доля ресэмплов"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "450e5c59a8dc05a5fd670b5fe7c73ade9d70b39903e8ca92cdf3c321138ec517"
+  },
+  {
+    "file": "supplementary/tables/step10_summary.csv",
+    "source": "reports/tables/step10_summary.csv",
+    "description": "Сопоставление отбора и интерпретации",
+    "rows": 24,
+    "columns": [
+      "признак",
+      "методов отбора из 5",
+      "в наборе голосования",
+      "доля фолдов в голосовании",
+      "ранг SHAP, логрег А",
+      "ранг SHAP, деревья"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "e961a6e051ce6f8880e73f69ffb689ad9beb3ff342c6225e81bf6319e19085e0"
+  },
+  {
+    "file": "supplementary/tables/step11_test.csv",
+    "source": "reports/tables/step11_test.csv",
+    "description": "Финальная оценка на тесте",
+    "rows": 2,
+    "columns": [
+      "модель",
+      "ROC-AUC",
+      "ROC-AUC ДИ низ",
+      "ROC-AUC ДИ верх",
+      "AP",
+      "AP ДИ низ",
+      "AP ДИ верх",
+      "Brier эталон",
+      "Brier",
+      "Brier масштабированный",
+      "калибровка: наклон",
+      "калибровка в среднем",
+      "OOF train",
+      "OOF ДИ низ",
+      "OOF ДИ верх",
+      "внутри ДИ OOF"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "32fe6db36633076ad30ca6d73e95c2cacb8fc29ee95049ebe1e11cb4adf8a3c8"
+  },
+  {
+    "file": "supplementary/tables/step11_thresholds.csv",
+    "source": "reports/tables/step11_thresholds.csv",
+    "description": "Сводные матрицы ошибок и рабочие точки финалистов",
+    "rows": 8,
+    "columns": [
+      "модель",
+      "порог",
+      "значение",
+      "TP",
+      "FP",
+      "TN",
+      "FN",
+      "чувствительность",
+      "специфичность",
+      "PPV",
+      "NPV",
+      "доля помеченных",
+      "выборка"
+    ],
+    "transformations": [
+      "PR-AUC переименовано в AP в заголовках"
+    ],
+    "sha256": "97decd13912890fe89e242a83cba41bdeb91c07c4333a9bfd5e95dd3862fc981"
+  },
+  {
+    "file": "supplementary/tables/thresholds.csv",
+    "source": "reports/threshold_audit_2026-11-04/reproduced_cutoffs.csv",
+    "description": "Пороги признаков статьи",
+    "rows": 4,
+    "columns": [
+      "признак",
+      "известно",
+      "условие",
+      "направление",
+      "порог",
+      "порог ДИ низ",
+      "порог ДИ верх",
+      "чувствительность",
+      "специфичность",
+      "пациентов с условием",
+      "рецидив при условии",
+      "доля при условии",
+      "рецидив без условия",
+      "доля без условия",
+      "ОШ",
+      "ОШ ДИ низ",
+      "ОШ ДИ верх",
+      "критерий",
+      "p"
+    ],
+    "transformations": [
+      "оставлены только признаки или сочетания из статьи, без пары с длительностью"
+    ],
+    "sha256": "99eb8efbec0a9b8c8c79af63e5516fbb867bfe2b28f0b2c5fc9e22b4233f3187"
+  },
+  {
+    "file": "supplementary/tables/threshold_pairs.csv",
+    "source": "reports/threshold_audit_2026-11-04/reproduced_pairs.csv",
+    "description": "Три сочетания дозы, включенные в статью",
+    "rows": 3,
+    "columns": [
+      "сочетание",
+      "известны оба",
+      "чувствительность",
+      "специфичность",
+      "пациентов с условием",
+      "рецидив при условии",
+      "доля при условии",
+      "рецидив без условия",
+      "доля без условия",
+      "ОШ",
+      "ОШ ДИ низ",
+      "ОШ ДИ верх",
+      "критерий",
+      "p"
+    ],
+    "transformations": [
+      "оставлены только признаки или сочетания из статьи, без пары с длительностью"
+    ],
+    "sha256": "16c3733b9a930ec4537675d624555a9d18e09f975a23c841cbf195703f8fbab8"
+  },
+  {
+    "file": "supplementary/tables/final_parameters.csv",
+    "source": "data/interim/final_models.json",
+    "description": "Гиперпараметры двух финалистов без обученных коэффициентов и индивидуальных прогнозов",
+    "rows": 27,
+    "columns": [
+      "модель",
+      "параметр",
+      "значение"
+    ],
+    "transformations": [
+      "экспортированы только параметры model__, без замороженного бандла"
+    ],
+    "sha256": "085a383d3e3d458c6493ce66db9f916238dd8ee223d7603eba43624fd029a7ad"
+  }
+]

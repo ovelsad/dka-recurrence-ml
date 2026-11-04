@@ -1,0 +1,28 @@
+﻿модель,параметр,значение
+логрег Б,C,0.03162277660168379
+логрег Б,class_weight,None
+логрег Б,dual,False
+логрег Б,fit_intercept,True
+логрег Б,intercept_scaling,1
+логрег Б,l1_ratio,None
+логрег Б,max_iter,5000
+логрег Б,multi_class,'deprecated'
+логрег Б,n_jobs,None
+логрег Б,penalty,'l2'
+логрег Б,random_state,0
+логрег Б,solver,'lbfgs'
+логрег Б,tol,0.0001
+логрег Б,verbose,0
+логрег Б,warm_start,False
+CatBoost,allow_writing_files,False
+CatBoost,cat_features,"[""'тип СД (1-1, 2-2, 3 -др)'"", ""'Вид инсулинотерапии (1 - ручки, 2 - помпа) на момент ДКА'""]"
+CatBoost,depth,1
+CatBoost,iterations,506
+CatBoost,l2_leaf_reg,2.17555253603853
+CatBoost,learning_rate,0.004292877839797237
+CatBoost,nan_mode,'Min'
+CatBoost,one_hot_max_size,2
+CatBoost,random_seed,0
+CatBoost,random_strength,0.2689363403889829
+CatBoost,thread_count,1
+CatBoost,verbose,0

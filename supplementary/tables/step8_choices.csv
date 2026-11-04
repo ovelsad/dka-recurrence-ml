@@ -1,0 +1,5 @@
+﻿модель,параметр,вариант,фолдов
+CatBoost,one_hot_max_size,2,18
+CatBoost,one_hot_max_size,8,7
+CatBoost,nan_mode,Min,22
+CatBoost,nan_mode,Max,3
